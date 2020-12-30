@@ -1,0 +1,14 @@
+.header{
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.item a{
+    color: black;
+}
+.item  a.active {
+    color: blue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

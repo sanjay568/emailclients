@@ -1,0 +1,12 @@
+input.ng-touched.ng-pristine.ng-invalid{
+    border: solid 1px red;
+}
+
+.error span {
+    color:brown;
+    margin-top: 3px;
+}
+
+h1{
+    font-family: 'Lobster', cursive;
+}

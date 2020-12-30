@@ -1,0 +1,33 @@
+
+<div class="ui container">
+    <h1>SignUp from Here</h1>
+    <hr/>
+    <form (ngSubmit)='onSubmit()' [formGroup]="authForm" class="ui form">
+        <div class="field">
+            <label>Name</label>
+            <input formControlName="username" />
+
+            <div class="error ui pointing red basic label"
+            *ngIf="authForm.get('username').touched && getErrorMsg()">
+              {{getErrorMsg()}}
+            </div>
+            
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input formControlName="password" />
+        </div>
+        <div class="field">
+            <label>Confirm Password</label>
+            <input formControlName="passwordConfirmation" />
+        </div>
+        <div class="error ui pointing red basic label" *ngIf="this.authForm.get('password').touched && this.authForm.get('passwordConfirmation').touched && this.authForm.errors">
+            <span *ngIf="this.authForm.errors.noInternetConnection" >No Internet Connect Please Try After Some Time </span>
+            <span *ngIf="this.authForm.errors.passwordNotMatch" > password and confirm password should be same </span>
+        </div>
+
+        <button class="ui button primary button">Submit</button><br/>
+        <hr/>
+        <p>Already have the account ? <a routerLink="/">Sign In</a> Instead</p>
+    </form>
+</div>

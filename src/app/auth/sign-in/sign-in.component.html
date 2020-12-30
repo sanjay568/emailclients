@@ -1,0 +1,36 @@
+
+<div class="ui container">
+    <h1>SignIn</h1>
+    <hr/>
+    <form (ngSubmit)='onSubmit()' [formGroup]="signInForm" class="ui form">
+        <div class="field">
+            <label>Name</label>
+            <input formControlName="username" />
+
+            <div class="error ui pointing red basic label"
+            *ngIf="signInForm.get('username').touched && !signInForm.get('username').valid">
+               Username is required
+            </div>
+           
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input formControlName="password" />
+        </div>
+
+        <div class="error ui pointing red basic label"
+            *ngIf="signInForm.get('password').touched && !signInForm.get('password').valid">
+               Password is required
+        </div>
+
+        <button class="ui button primary button">Submit</button><br/>
+        <p *ngIf="isUserValid" class="error ui red basic label">Username or password is invalid</p>
+        <hr/>
+
+        <p class="ui red label" *ngIf="signInForm.errors.credentials">
+            Invalid Username and password
+        </p>
+    
+        <p>Dont't have the account ? <a routerLink="/signup">SignUp</a> Instead</p>
+    </form>
+</div>
